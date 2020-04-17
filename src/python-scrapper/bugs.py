@@ -48,9 +48,9 @@ def create_bug_dict(bug_row):
 
 def create_bug_list(raw_bugs_list):
   i = 0
-
+  bugs_list = []
+  
   while i < len(raw_bugs_list):
-    bugs_list = []
     if i != 0:
       bugs_list.append(create_bug_dict(raw_bugs_list[i]))
     i += 1
@@ -63,5 +63,5 @@ bug_json = {
   'southern': create_bug_list(s_bugs_data)
 }
 
-with open('bug.json', 'w') as json_file:
+with open('bugs.json', 'w') as json_file:
   json.dump(bug_json, json_file)

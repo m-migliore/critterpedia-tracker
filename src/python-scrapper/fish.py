@@ -47,9 +47,9 @@ def create_fish_dict(fish_row):
 
 def create_fish_list(raw_fish_list):
   i = 0
+  fish_list = []
 
   while i < len(raw_fish_list):
-    fish_list = []
     if i != 0:
       fish_list.append(create_fish_dict(raw_fish_list[i]))
     i += 1
@@ -62,5 +62,5 @@ fish_json = {
   'southern': create_fish_list(s_fish_data)
 }
 
-with open('fish.json', 'w') as json_file:
+with open('./fish.json', 'w') as json_file:
   json.dump(fish_json, json_file)
