@@ -38,9 +38,13 @@ def create_bug_dict(bug_row):
   curr_bug = {}
   i = 0
   while i < len(bug_data):
+    # bug_data[1] is the image path
     if i == 1:
       img_path = bug_data[i].find("img")
       curr_bug[bugs_col_titles[i]] = img_path["data-src"]
+    elif i > 4:
+      # bug_data[> 4] are the active months 
+      curr_bug[bugs_col_titles[i]] = text_cleaner(bug_data[i].text.lower()) == "\u2713"
     else:
       curr_bug[bugs_col_titles[i]] = text_cleaner(bug_data[i].text.lower())
     i += 1

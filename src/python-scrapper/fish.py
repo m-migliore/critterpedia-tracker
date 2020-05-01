@@ -37,9 +37,13 @@ def create_fish_dict(fish_row):
   curr_fish = {}
   i = 0
   while i < len(fish_data):
+    # fish_data[1] is the image path
     if i == 1:
       img_path = fish_data[i].find("img")
       curr_fish[fish_col_titles[i]] = img_path["data-src"]
+    elif i > 5:
+      # fish_data[> 5] are the active months 
+      curr_fish[fish_col_titles[i]] = text_cleaner(fish_data[i].text.lower()) == "\u2713"
     else:
       curr_fish[fish_col_titles[i]] = text_cleaner(fish_data[i].text.lower())
     i += 1
