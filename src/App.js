@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import fishList from './python-scrapper/fish.json'
 import bugsList from './python-scrapper/bugs.json'
 
-import FishList from './components/FishList'
+import FishTable from './components/FishTable'
 
 import './App.css';
 
@@ -62,7 +62,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         Critterpedia Tracker
-        {fishReady ? <FishList fish={fish} hemisphere={currentHemisphere}/> : "LoadingFish"}
+        {fishReady ? <FishTable fish={fish} hemisphere={"northern"}/> : "LoadingFish"}
       </header>
     </div>
   );
